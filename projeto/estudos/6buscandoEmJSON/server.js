@@ -12,20 +12,26 @@ const typeDefs = (0, apollo_server_1.gql) `
     },
     
     type Query {
-        UsuarioBuscarPorId(id: ID!): Usuario
+        UsuarioBuscarPorId(id: ID!): Usuario,
+        UsuarioBuscarPorNome(nome: String!): [Usuario],
+        UsuarioBuscarPorIdade(idade: Int!): [Usuario],
+        UsuarioBuscarPorNomeIdade(nome: String, idade: Int): [Usuario]
     }
 `;
-/*
-UsuarioBuscarPorNome(nome: String!): Usuario,
-UsuarioBuscarPorIdade(idade: Int!): Usuario,
-UsuarioBuscarPorNomeIdade(nome: String, idade: Int): Usuario
-*/
 const resolvers = {
     Query: {
         UsuarioBuscarPorId(_, args) {
-            let usuario;
-            usuario = (usuarios.find((usuario) => usuario.id === args.id)) || null;
-            return usuario || null;
+            return (usuarios.find((usuario) => usuario.id === args.id)) || null;
+        },
+        UsuarioBuscarPorNome(_, args) {
+            return (usuarios.filter((usuario) => usuario.nome === args.nome));
+        },
+        UsuarioBuscarPorIdade(_, args) {
+            return (usuarios.filter((usuario) => usuario.idade === args.idade));
+        },
+        UsuarioBuscarPorNomeIdade(_, args) {
+            return (usuarios.filter((usuario) => (!args.nome || usuario.nome === args.nome) &&
+                (!args.idade || usuario.idade === args.idade)));
         }
     }
 };

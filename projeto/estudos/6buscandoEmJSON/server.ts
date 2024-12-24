@@ -18,23 +18,38 @@ const typeDefs = gql`
     },
     
     type Query {
-        UsuarioBuscarPorId(id: ID!): Usuario
+        UsuarioBuscarPorId(id: ID!): Usuario,
+        UsuarioBuscarPorNome(nome: String!): [Usuario],
+        UsuarioBuscarPorIdade(idade: Int!): [Usuario],
+        UsuarioBuscarPorNomeIdade(nome: String, idade: Int): [Usuario]
     }
 `;
-
-/*
-UsuarioBuscarPorNome(nome: String!): Usuario,
-UsuarioBuscarPorIdade(idade: Int!): Usuario,
-UsuarioBuscarPorNomeIdade(nome: String, idade: Int): Usuario
-*/
 
 const resolvers = {
     Query: {
         UsuarioBuscarPorId(_: any, args: {id: String}): Usuario | null {
-            let usuario: Usuario | null;
-            usuario = (usuarios.find((usuario) => usuario.id === args.id)) || null;
-            
-            return usuario || null;    
+            return (usuarios.find((usuario) =>
+                usuario.id === args.id
+            )) || null;
+        },
+
+        UsuarioBuscarPorNome(_: any, args: {nome: String}): Usuario[] | [] {
+            return (usuarios.filter((usuario) =>
+                usuario.nome === args.nome
+            ));
+        },
+
+        UsuarioBuscarPorIdade(_: any, args: {idade: number}): Usuario[] | [] {
+            return (usuarios.filter((usuario) =>
+                usuario.idade === args.idade
+            ));
+        },
+
+        UsuarioBuscarPorNomeIdade(_: any, args: {nome: String, idade: number}): Usuario[] | [] {
+            return (usuarios.filter((usuario) =>
+                (!args.nome  || usuario.nome  === args.nome) &&
+                (!args.idade || usuario.idade === args.idade)
+            ));
         }
     }
 };
