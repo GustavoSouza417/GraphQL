@@ -30,13 +30,11 @@ UsuarioBuscarPorNomeIdade(nome: String, idade: Int): Usuario
 
 const resolvers = {
     Query: {
-        UsuarioBuscarPorId(_: any, args: {id: String}): Usuario | String {
-            const usuario = usuarios.find((usuario) => usuario.id === args.id);
-            console.log(usuario);
-
+        UsuarioBuscarPorId(_: any, args: {id: String}): Usuario | null {
+            let usuario: Usuario | null;
+            usuario = (usuarios.find((usuario) => usuario.id === args.id)) || null;
             
-            
-            return "Usuário não encontrado!";
+            return usuario || null;    
         }
     }
 };
