@@ -45,6 +45,7 @@ const resolvers = {
             ));
         },
 
+        //nome e idade são argumentos opcionais, então você pode passar apenas um deles
         UsuarioBuscarPorNomeIdade(_: any, args: {nome: String, idade: number}): Usuario[] | [] {
             return (usuarios.filter((usuario) =>
                 (!args.nome  || usuario.nome  === args.nome) &&
