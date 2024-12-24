@@ -1,5 +1,13 @@
 import { gql, ApolloServer } from 'apollo-server';
 
+//define o "nome" do comando
+const typeDefs = gql`
+    type Query {
+        helloWorld: String
+    }
+`;
+
+//é o que será executado quando o comando for chamado
 const resolvers = {
     Query: {
         helloWorld(): String {
@@ -7,12 +15,6 @@ const resolvers = {
         }
     }
 };
-
-const typeDefs = gql`
-    type Query {
-        helloWorld: String
-    }
-`;
 
 const server: ApolloServer = new ApolloServer({
     typeDefs,
