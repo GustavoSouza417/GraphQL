@@ -1,5 +1,5 @@
 /*
-    Tipos de Dados:
+    Tipos Escalares:
     - ID
     - String
     - Int
