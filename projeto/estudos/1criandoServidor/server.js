@@ -18,4 +18,6 @@ const server = new apollo_server_1.ApolloServer({
     resolvers
 });
 //por padrão, ele chama a porta 4000
-server.listen();
+server.listen().then(({ url }) => {
+    console.log("Servidor rodando com sucesso em: " + url);
+});
