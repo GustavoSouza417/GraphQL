@@ -29,6 +29,7 @@ const resolvers = {
         UsuarioBuscarPorIdade(_, args) {
             return (usuarios.filter((usuario) => usuario.idade === args.idade));
         },
+        //nome e idade são argumentos opcionais, então você pode passar apenas um deles
         UsuarioBuscarPorNomeIdade(_, args) {
             return (usuarios.filter((usuario) => (!args.nome || usuario.nome === args.nome) &&
                 (!args.idade || usuario.idade === args.idade)));
