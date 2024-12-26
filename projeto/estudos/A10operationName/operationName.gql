@@ -1,0 +1,26 @@
+#você pode nomear cada Query que possui
+#ao invés de chamá-la apenas de Query
+#isso é chamado de "Operation Names"
+#assim, você terá maior facilidade para depurar logs
+
+query exibirUsuarioCompleto {
+    aliases_exibirUsuarioCompleto: usuario(id: 1) {
+        ...usuarioCompleto       
+    }
+}
+
+query exibirNomeUsuario {
+    aliases_exibirNomeUsuario: usuario(id: 2) {
+        nome
+    }
+}
+
+fragment usuarioCompleto on Usuario {
+    id
+    nome
+    sobrenome
+    idade
+    email
+    telefone
+    solteiro
+}
