@@ -1,0 +1,30 @@
+# comentário em GraphQL
+# arquivos GraphQL tem a extensão .gql
+
+#se você executasse essa consulta, ocorreriam erros,
+#pois você não pode executar duas consultas iguais de forma direta
+query {
+    usuario(id: 1) {
+        id
+        nome
+    }
+
+    usuario(id: 2) {
+        id
+        nome
+    }
+}
+
+#para fazer isso de maneira funcional, você deve usar "aliases"
+#eles servem para atribuir um nome único e personalizado para cada consulta
+query {
+    primeiroUsuario: usuario(id: 1) {
+        id
+        nome
+    }
+
+    segundoUsuario: usuario(id: 2) {
+        id
+        nome
+    }
+}
