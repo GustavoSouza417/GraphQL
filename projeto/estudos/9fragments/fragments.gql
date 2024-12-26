@@ -1,0 +1,59 @@
+#fragments são semelhantes a funções
+#eles servem para evitar repetições de código
+
+query {
+    primeiroUsuario: usuario(id: 1) {
+        #para invocar um "fragment", basta colocar
+        #três pontos e o nome do "fragment"
+        #ao invocá-lo, todo o código encapsulado nele será executado
+        ...usuarioCompleto
+    }
+
+    segundoUsuario: usuario(id: 2) {
+        ...usuarioCompleto
+    }
+
+    terceiroUsuario: usuario(id: 3) {
+        ...usuarioCompleto
+    }
+
+    quartoUsuario: usuario(id: 4) {
+        ...usuarioCompleto
+    }
+
+    quintoUsuario: usuario(id: 5) {
+        ...usuarioCompleto
+    }
+
+    sextoUsuario: usuario(id: 6) {
+        ...usuarioCompleto
+    }
+
+    setimoUsuario: usuario(id: 7) {
+        ...usuarioCompleto
+    }
+
+    oitavoUsuario: usuario(id: 8) {
+        ...usuarioCompleto
+    }
+
+    nonoUsuario: usuario(id: 9) {
+        ...usuarioCompleto
+    }
+
+    decimoUsuario: usuario(id: 10) {
+        ...usuarioCompleto
+    }
+}
+
+#a estrutura é "fragment", nome do fragment e o 
+#tipo de objeto ao qual ele se refere
+fragment usuarioCompleto on Usuario {
+    id
+    nome
+    sobrenome
+    idade
+    email
+    telefone
+    solteiro
+}
