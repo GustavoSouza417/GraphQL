@@ -1,0 +1,40 @@
+#include: inclui uma parte da query quando tem retorno verdadeiro
+#skip: não inclui uma parte da query quando tem retorno verdadeiro
+
+#ambos fazem a mesma coisa, mas de formas contrárias
+#você pode obter qualquer resultado utilizando apenas um dos dois
+#basta inverter o resultado da expressão boleana
+
+#é comum a utilização de variáveis boleanas para
+#validar qual fluxo a query deve tomar nessas diretivas
+
+#ao utilizar diretivas condicionais, as variáveis que fazem
+#parte delas sempre devem ter o !, pois não podem ser nulas
+#já que a query sempre precisará lê-las em cada execução
+#caso sejam nulas, o compilador retornará erro
+
+query usandoInclude($id1: ID!, $incluir: Boolean!) {
+    pesquisarUsuario: usuario(id: $id1) {
+        id
+        nome
+        
+        #se verdadeiro, mostra os dados de "perfil"
+        perfil @include(if: $incluir) {
+            id
+            nome
+        }
+    }
+}
+
+query usandoSkip($id2: ID!, $skip: Boolean!) {
+    pesquisarUsuario: usuario(id: $id2) {
+        id
+        nome
+        
+        #se verdadeiro, não mostra os dados de "perfil"
+        perfil @skip(if: $skip) {
+            id
+            nome           
+        }       
+    }
+}
