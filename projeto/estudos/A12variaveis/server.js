@@ -32,17 +32,11 @@ const perfis = [
         nome: tipoPerfis.USUARIO
     }
 ];
-//tipos de objetos
 const typeDefs = (0, apollo_server_1.gql) `
     type Usuario {
         id: ID!,
         nome: String!,
         perfil: Perfil
-    },
-
-    enum TipoPerfil {
-        ADMINISTRADOR,
-        USUARIO
     },
 
     type Perfil {

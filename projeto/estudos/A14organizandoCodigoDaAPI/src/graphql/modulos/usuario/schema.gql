@@ -1,0 +1,9 @@
+type Usuario {
+    id: ID!,
+    nome: String!,
+    perfil: Perfil
+},
+
+type Query {
+    usuario(id: ID!): Usuario      
+}

@@ -32,7 +32,7 @@ const perfis = [
         nome: tipoPerfis.USUARIO
     }
 ];
-//tipos de objetos
+//tipos de objetos (era para usar esse TipoPerfil no Perfil.nome, mas não consegui e deixei como String!)
 const typeDefs = (0, apollo_server_1.gql) `
     type Usuario {
         id: ID!,

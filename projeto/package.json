@@ -12,6 +12,7 @@
   "dependencies": {
     "apollo-server": "^3.13.0",
     "graphql": "^16.10.0",
+    "graphql-tools": "^9.0.9",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
