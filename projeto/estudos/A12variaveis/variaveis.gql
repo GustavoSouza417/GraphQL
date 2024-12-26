@@ -1,0 +1,30 @@
+#você pode utilizar variáveis para suas querys
+#isso é indicado, pois assim você consegue entregar
+#exatamente o que o cliente deseja receber
+
+#para passar variáveis como parâmetro,
+#você deve definí-las no operation name
+#a definição contém cifrão, seguido do nome da variável e seu tipo escalar
+#você pode passar quantas variáveis quiser, separando-as por vírgula
+
+query exibirUsuarioCompleto($id1: ID!, $id2: ID!) {
+    primeiroUsuario: usuario(id: $id1) {
+        ...usuarioCompleto
+    }
+
+    segundoUsuario: usuario(id: $id2) {
+        ...usuarioCompleto
+    }
+}
+
+fragment usuarioCompleto on Usuario {
+    id
+    nome
+    perfil {
+        id
+        nome
+    }
+}
+
+#observação: não esqueça de definir as variáveis
+#na seção de variáveis do ApolloServer
