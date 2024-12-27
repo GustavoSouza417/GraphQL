@@ -1,23 +1,18 @@
-import { join } from "path";
-
-const { 
-    loadFilesSync,
-    mergeTypeDefs,
-    mergeResolvers
-} = require("graphql-tools");
+import path from "path";
+import { makeExecutableSchema } from "@graphql-tools/schema";
+import { mergeTypeDefs, mergeResolvers } from "@graphql-tools/merge";
+import { loadFilesSync } from "@graphql-tools/load-files";
 
 const allTypeDefs: any = loadFilesSync(
-    join(__dirname, "modulos", "**", "*.gql")
+    path.join(__dirname, "modulos", "**", "*.gql"), { extensions: ["gql"] }
 );
 
 const allResolvers: any = loadFilesSync(
-    join(__dirname, "modulos", "**", "*resolvers.js")
+    path.join(__dirname, "./modulos", "**", "*resolvers.js"), { extensions: ["js"] }
 );
 
 const typeDefs: any = mergeTypeDefs(allTypeDefs);
 const resolvers: any = mergeResolvers(allResolvers);
+const schema: any = makeExecutableSchema({ typeDefs, resolvers });
 
-module.exports = {
-    typeDefs,
-    resolvers
-};
+export default schema;

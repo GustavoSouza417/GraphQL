@@ -10,6 +10,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
+    "@graphql-tools/load-files": "^7.0.0",
     "apollo-server": "^3.13.0",
     "graphql": "^16.10.0",
     "graphql-tools": "^9.0.9",

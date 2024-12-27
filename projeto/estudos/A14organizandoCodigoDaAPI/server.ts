@@ -1,10 +1,7 @@
-import { gql, ApolloServer } from "apollo-server";
-const { typeDefs, resolvers } = require("./src/graphql/merge");
+import { ApolloServer } from "apollo-server";
+import schema from "./src/graphql/merge";
 
-const server: ApolloServer = new ApolloServer({
-    typeDefs,
-    resolvers
-});
+const server: ApolloServer = new ApolloServer({ schema });
 
 server.listen().then(({ url }) => {
     console.log("Servidor rodando com sucesso em: " + url);
