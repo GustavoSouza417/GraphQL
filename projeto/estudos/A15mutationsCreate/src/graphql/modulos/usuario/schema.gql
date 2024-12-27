@@ -1,0 +1,16 @@
+type Usuario {
+    id: ID!,
+    nome: String!,
+    email: String!,
+    senha: String!,
+    perfil: Perfil!
+},
+
+type Query {
+    exibirUsuarios: [Usuario],
+    exibirUsuario(id: ID!): Usuario
+},
+
+type Mutation {
+    criarUsuario(nome: String!, email: String!, senha: String!): Usuario!
+}

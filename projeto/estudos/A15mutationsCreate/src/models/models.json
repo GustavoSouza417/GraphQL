@@ -1,0 +1,27 @@
+{
+  "usuarios": {
+    "usuario1": {
+      "id": "1",
+      "email": {
+        "nome": "João",
+        "email": "jao@gmail.com",
+        "senha": "2345"
+      },
+      "senha": {},
+      "perfil": {
+        "id": "2",
+        "nome": "Usuário"
+      }
+    }
+  },
+  "perfis": {
+    "tipo1": {
+      "id": "1",
+      "nome": "Administrador"
+    },
+    "tipo2": {
+      "id": "2",
+      "nome": "Usuário"
+    }
+  }
+}
