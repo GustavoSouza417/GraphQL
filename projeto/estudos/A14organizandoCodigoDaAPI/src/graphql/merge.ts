@@ -4,11 +4,11 @@ import { mergeTypeDefs, mergeResolvers } from "@graphql-tools/merge";
 import { loadFilesSync } from "@graphql-tools/load-files";
 
 const allTypeDefs: any = loadFilesSync(
-    path.join(__dirname, "modulos", "**", "*.gql"), { extensions: ["gql"] }
+    path.join(__dirname, "./modulos", "**", "*.gql"), { extensions: ["gql"] }
 );
 
 const allResolvers: any = loadFilesSync(
-    path.join(__dirname, "./modulos", "**", "*resolvers.js"), { extensions: ["js"] }
+    path.join(__dirname, "./modulos", "**", "*resolver.js"), { extensions: ["js"] }
 );
 
 const typeDefs: any = mergeTypeDefs(allTypeDefs);
