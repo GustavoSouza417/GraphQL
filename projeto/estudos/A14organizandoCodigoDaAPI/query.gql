@@ -1,0 +1,19 @@
+query exibirUsuarioCompleto($id1: ID!, $id2: ID!, $incluirId1: Boolean!, $incluirId2: Boolean!) {
+    primeirousuario: usuario(id: $id1) {
+        id @include(if: $incluirId1)
+        ...exibirUsuario
+    }
+
+    segundoUsuario: usuario(id: $id2) {
+        id @include(if: $incluirId2)
+        ...exibirUsuario
+    }
+}
+
+fragment exibirUsuario on Usuario {
+    nome
+    perfil {
+        id
+        nome
+    }
+}
