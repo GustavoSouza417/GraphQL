@@ -7,8 +7,8 @@ type Usuario {
 },
 
 type Query {
-    exibirUsuarios: [Usuario],
-    exibirUsuario(id: ID!): Usuario
+    exibirUsuario(id: ID!): Usuario,
+    exibirUsuarios: [Usuario]
 },
 
 type Mutation {

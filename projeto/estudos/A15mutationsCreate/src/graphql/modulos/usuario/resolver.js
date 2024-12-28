@@ -6,16 +6,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const inserirUsuario_1 = __importDefault(require("../../../controllers/inserirUsuario"));
 exports.default = {
     Query: {
-        exibirUsuarios() {
+        exibirUsuario(id) {
             return null;
         },
-        exibirUsuario(id) {
+        exibirUsuarios() {
             return null;
         }
     },
     Mutation: {
-        criarUsuario(nome, email, senha) {
-            return (0, inserirUsuario_1.default)(nome, email, senha);
+        criarUsuario(_, args) {
+            return (0, inserirUsuario_1.default)(args.nome, args.email, args.senha);
         }
     }
 };

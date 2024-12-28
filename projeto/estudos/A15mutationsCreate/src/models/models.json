@@ -2,12 +2,9 @@
   "usuarios": {
     "usuario1": {
       "id": "1",
-      "email": {
-        "nome": "João",
-        "email": "jao@gmail.com",
-        "senha": "2345"
-      },
-      "senha": {},
+      "nome": "Erick",
+      "email": "jao@gmail.com",
+      "senha": "2345",
       "perfil": {
         "id": "2",
         "nome": "Usuário"
