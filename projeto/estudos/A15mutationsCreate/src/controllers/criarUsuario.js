@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = criarUsuario;
 const fs_1 = require("fs");
 const autoIncrement_1 = __importDefault(require("./autoIncrement"));
+const criptografarSenha_1 = __importDefault(require("./criptografarSenha"));
 function criarUsuario(nome, email, senha) {
     let models;
     let json;
@@ -17,7 +18,7 @@ function criarUsuario(nome, email, senha) {
         id: id,
         nome: nome,
         email: email,
-        senha: senha,
+        senha: (0, criptografarSenha_1.default)(senha.valueOf()),
         perfil: "2"
     };
     models = JSON.stringify(json, null, 2);

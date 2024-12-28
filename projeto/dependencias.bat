@@ -9,3 +9,4 @@ npm install -s typescript;
 npm install -s ts-node;
 npm install --save-dev typescript @types/node;
 npm install -s fs;
+npm install -s crypto;

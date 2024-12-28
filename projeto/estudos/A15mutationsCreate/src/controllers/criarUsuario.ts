@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync } from "fs";
 import Models from "../tipos/interfaces/json/iModels";
 import Usuario from "../tipos/interfaces/usuario/iUsuario";
 import autoIncrement from "./autoIncrement";
+import criptografarSenha from "./criptografarSenha";
 
 export default function criarUsuario(nome: String, email: String, senha: String): Usuario {
     let models: string;
@@ -16,7 +17,7 @@ export default function criarUsuario(nome: String, email: String, senha: String)
         id: id,
         nome: nome,
         email: email,
-        senha: senha,
+        senha: criptografarSenha(senha.valueOf()),
         perfil: "2"
     };
 
