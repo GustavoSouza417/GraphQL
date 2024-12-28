@@ -4,7 +4,7 @@ import Usuario from "../tipos/interfaces/usuario/iUsuario";
 import autoIncrement from "./autoIncrement";
 import criptografarSenha from "./criptografarSenha";
 
-export default function criarUsuario(nome: String, email: String, senha: String): Usuario {
+export default function criarUsuario(nome: String, email: String, senha: String, isAdm: boolean): Usuario {
     let models: string;
     let json: Models;
     let id: String;
@@ -18,7 +18,7 @@ export default function criarUsuario(nome: String, email: String, senha: String)
         nome: nome,
         email: email,
         senha: criptografarSenha(senha.valueOf()),
-        perfil: "2"
+        perfil: (isAdm) ? "1" : "2"
     };
 
     models = JSON.stringify(json, null, 2);

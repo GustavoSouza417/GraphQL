@@ -23,7 +23,7 @@ exports.default = {
     },
     Mutation: {
         criarUsuario(_, args) {
-            return (0, criarUsuario_1.default)(args.nome, args.email, args.senha);
+            return (0, criarUsuario_1.default)(args.nome, args.email, args.senha, args.isAdm);
         }
     }
 };

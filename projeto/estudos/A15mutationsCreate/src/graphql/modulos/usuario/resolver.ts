@@ -23,8 +23,8 @@ export default {
     },
 
     Mutation: {
-        criarUsuario(_: any, args: { nome: String, email: String, senha: String }): Usuario {
-            return criarUsuario(args.nome, args.email, args.senha);
+        criarUsuario(_: any, args: { nome: String, email: String, senha: String, isAdm: boolean }): Usuario {
+            return criarUsuario(args.nome, args.email, args.senha, args.isAdm);
         }
     }
 };
