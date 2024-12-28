@@ -24,10 +24,7 @@ fragment usuarioCompleto on Usuario {
     id
     nome
     email
-    perfil {
-        id
-        nome
-    }
+    perfil
 }
 
 # variáveis

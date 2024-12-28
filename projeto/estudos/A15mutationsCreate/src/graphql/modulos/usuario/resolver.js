@@ -7,6 +7,11 @@ const exibirUsuario_1 = __importDefault(require("../../../controllers/exibirUsua
 const exibirUsuarios_1 = __importDefault(require("../../../controllers/exibirUsuarios"));
 const criarUsuario_1 = __importDefault(require("../../../controllers/criarUsuario"));
 exports.default = {
+    // Usuario: {
+    //     perfil(usuario: Usuario): Perfil | null {
+    //         return exibirPerfilUsuario(usuario);
+    //     }
+    // },
     Query: {
         exibirUsuario(_, args) {
             return (0, exibirUsuario_1.default)(args.id);

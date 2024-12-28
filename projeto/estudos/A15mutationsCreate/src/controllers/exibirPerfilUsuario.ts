@@ -1,26 +1,18 @@
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync } from "fs";
 import Models from "../tipos/interfaces/json/iModels";
+import Perfil from "../tipos/interfaces/perfil/iPerfil";
 import Usuario from "../tipos/interfaces/usuario/iUsuario";
 
-export default function criarUsuario(nome: String, email: String, senha: String): Usuario {
+export default function exibirPerfilUsuario(usuario: Usuario): Perfil | null {
     let models: string;
     let json: Models;
 
     models = readFileSync("./src/models/models.json", "utf8");
     json = JSON.parse(models);
-
-    json.usuarios["usuario1"] = {
-        id: "1",
-        nome: nome,
-        email: email,
-        senha: senha,
-        perfil: "2"
-    };
-
-    models = JSON.stringify(json, null, 2);
-    writeFileSync("./src/models/models.json", models, "utf-8");
-
-    return json.usuarios["usuario1"];
+    
+    return Object.values(json.perfis).find((perfil: Perfil) =>
+        perfil.id === usuario.perfil
+    ) || null;
 };
 
 //as operações de JSON estão com o endereço a partir da pasta raiz

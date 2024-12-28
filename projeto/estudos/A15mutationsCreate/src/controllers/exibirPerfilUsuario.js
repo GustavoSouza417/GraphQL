@@ -1,22 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = criarUsuario;
+exports.default = exibirPerfilUsuario;
 const fs_1 = require("fs");
-function criarUsuario(nome, email, senha) {
+function exibirPerfilUsuario(usuario) {
     let models;
     let json;
     models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
     json = JSON.parse(models);
-    json.usuarios["usuario1"] = {
-        id: "1",
-        nome: nome,
-        email: email,
-        senha: senha,
-        perfil: "2"
-    };
-    models = JSON.stringify(json, null, 2);
-    (0, fs_1.writeFileSync)("./src/models/models.json", models, "utf-8");
-    return json.usuarios["usuario1"];
+    return Object.values(json.perfis).find((perfil) => perfil.id === usuario.perfil) || null;
 }
 ;
 //as operações de JSON estão com o endereço a partir da pasta raiz
