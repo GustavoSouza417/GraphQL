@@ -1,14 +1,16 @@
 import Usuario from "../../../tipos/interfaces/usuario/iUsuario";
+import exibirUsuario from "../../../controllers/exibirUsuario";
+import exibirUsuarios from "../../../controllers/exibirUsuarios";
 import criarUsuario from "../../../controllers/criarUsuario";
 
 export default {
     Query: {
-        exibirUsuario(id: String): Usuario | null {
-            return null;
+        exibirUsuario(_: any, args: {id: String}): Usuario | null {
+            return exibirUsuario(args.id);
         },
         
         exibirUsuarios(): Usuario[] | null {
-            return null;
+            return exibirUsuarios();
         }
     },
 
