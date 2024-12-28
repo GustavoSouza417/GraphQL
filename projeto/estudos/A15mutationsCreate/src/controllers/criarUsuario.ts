@@ -1,16 +1,19 @@
 import { readFileSync, writeFileSync } from "fs";
 import Models from "../tipos/interfaces/json/iModels";
 import Usuario from "../tipos/interfaces/usuario/iUsuario";
+import autoIncrement from "./autoIncrement";
 
 export default function criarUsuario(nome: String, email: String, senha: String): Usuario {
     let models: string;
     let json: Models;
+    let id: String;
 
     models = readFileSync("./src/models/models.json", "utf8");
     json = JSON.parse(models);
+    id = autoIncrement();
 
-    json.usuarios["usuario1"] = {
-        id: "1",
+    json.usuarios["usuario" + id] = {
+        id: id,
         nome: nome,
         email: email,
         senha: senha,
@@ -20,7 +23,7 @@ export default function criarUsuario(nome: String, email: String, senha: String)
     models = JSON.stringify(json, null, 2);
     writeFileSync("./src/models/models.json", models, "utf-8");
 
-    return json.usuarios["usuario1"];
+    return json.usuarios["usuario" + id];
 };
 
 //as operações de JSON estão com o endereço a partir da pasta raiz

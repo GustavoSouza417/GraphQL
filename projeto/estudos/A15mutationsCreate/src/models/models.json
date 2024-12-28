@@ -9,10 +9,24 @@
     },
     "usuario2": {
       "id": "2",
-      "nome": "5555",
-      "email": "pedrita@gmail.com",
-      "senha": "2345",
-      "perfil": "1"
+      "nome": "Palbo",
+      "email": "pablo@gmail.com",
+      "senha": "12345678",
+      "perfil": "2"
+    },
+    "usuario3": {
+      "id": "3",
+      "nome": "Reginalda",
+      "email": "reginalda@gmail.com",
+      "senha": "12345678",
+      "perfil": "2"
+    },
+    "usuario4": {
+      "id": "4",
+      "nome": "Jucelaine",
+      "email": "jucelaine@gmail.com",
+      "senha": "12345678",
+      "perfil": "2"
     }
   },
   "perfis": {
