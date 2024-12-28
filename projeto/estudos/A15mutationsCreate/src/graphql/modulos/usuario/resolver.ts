@@ -1,5 +1,5 @@
 import Usuario from "../../../tipos/interfaces/usuario/iUsuario";
-import inserirUsuario from "../../../controllers/inserirUsuario";
+import criarUsuario from "../../../controllers/criarUsuario";
 
 export default {
     Query: {
@@ -14,7 +14,7 @@ export default {
 
     Mutation: {
         criarUsuario(_: any, args: { nome: String, email: String, senha: String }): Usuario {
-            return inserirUsuario(args.nome, args.email, args.senha);
+            return criarUsuario(args.nome, args.email, args.senha);
         }
     }
 };
