@@ -13,3 +13,7 @@ export default function exibirUsuario(id: String): Usuario | null {
         usuario.id === id
     ) || null;
 };
+
+//as operações de JSON estão com o endereço a partir da pasta raiz
+//porque é o servidor que está executando elas, já que a função
+//está sendo chamada nos resolvers
