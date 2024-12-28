@@ -10,9 +10,14 @@ export default function exibirPerfilUsuario(usuario: Usuario): Perfil | null {
     models = readFileSync("./src/models/models.json", "utf8");
     json = JSON.parse(models);
     
-    return Object.values(json.perfis).find((perfil: Perfil) =>
+    const perfil = Object.values(json.perfis).find((perfil: Perfil) =>
         perfil.id === usuario.perfil
-    ) || null;
+    );
+
+    console.log("Valor do Perfil:\n");
+    console.log(perfil);
+
+    return perfil || null;
 };
 
 //as operações de JSON estão com o endereço a partir da pasta raiz

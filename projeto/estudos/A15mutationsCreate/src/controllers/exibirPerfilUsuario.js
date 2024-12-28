@@ -7,7 +7,10 @@ function exibirPerfilUsuario(usuario) {
     let json;
     models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
     json = JSON.parse(models);
-    return Object.values(json.perfis).find((perfil) => perfil.id === usuario.perfil) || null;
+    const perfil = Object.values(json.perfis).find((perfil) => perfil.id === usuario.perfil);
+    console.log("Valor do Perfil:\n");
+    console.log(perfil);
+    return perfil || null;
 }
 ;
 //as operações de JSON estão com o endereço a partir da pasta raiz

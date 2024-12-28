@@ -3,15 +3,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const exibirPerfilUsuario_1 = __importDefault(require("../../../controllers/exibirPerfilUsuario"));
 const exibirUsuario_1 = __importDefault(require("../../../controllers/exibirUsuario"));
 const exibirUsuarios_1 = __importDefault(require("../../../controllers/exibirUsuarios"));
 const criarUsuario_1 = __importDefault(require("../../../controllers/criarUsuario"));
 exports.default = {
-    // Usuario: {
-    //     perfil(usuario: Usuario): Perfil | null {
-    //         return exibirPerfilUsuario(usuario);
-    //     }
-    // },
+    Usuario: {
+        perfil(usuario) {
+            return (0, exibirPerfilUsuario_1.default)(usuario);
+        }
+    },
     Query: {
         exibirUsuario(_, args) {
             return (0, exibirUsuario_1.default)(args.id);

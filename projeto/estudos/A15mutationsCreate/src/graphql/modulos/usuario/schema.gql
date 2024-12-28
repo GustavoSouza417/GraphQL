@@ -3,7 +3,7 @@ type Usuario {
     nome: String!,
     email: String!,
     senha: String!,
-    perfil: String!
+    perfil: Perfil
 },
 
 type Query {

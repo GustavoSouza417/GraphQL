@@ -6,11 +6,11 @@ import exibirUsuarios from "../../../controllers/exibirUsuarios";
 import criarUsuario from "../../../controllers/criarUsuario";
 
 export default {
-    // Usuario: {
-    //     perfil(usuario: Usuario): Perfil | null {
-    //         return exibirPerfilUsuario(usuario);
-    //     }
-    // },
+    Usuario: {
+        perfil(usuario: Usuario): Perfil | null {
+            return exibirPerfilUsuario(usuario);
+        }
+    },
 
     Query: {
         exibirUsuario(_: any, args: {id: String}): Usuario | null {

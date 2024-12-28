@@ -1,3 +1,5 @@
+import Perfil from "../perfil/iPerfil";
+
 export default interface Usuario {
     id: String;
     nome: String;
