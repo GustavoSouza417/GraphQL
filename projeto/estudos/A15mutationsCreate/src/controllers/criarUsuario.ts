@@ -3,11 +3,15 @@ import Models from "../tipos/interfaces/json/iModels";
 import Usuario from "../tipos/interfaces/usuario/iUsuario";
 import autoIncrement from "./autoIncrement";
 import criptografarSenha from "./criptografarSenha";
+import isEmailCadastrado from "./isEmailCadastrado";
 
 export default function criarUsuario(nome: String, email: String, senha: String, isAdm: boolean): Usuario {
     let models: string;
     let json: Models;
     let id: String;
+
+    if(isEmailCadastrado(email.valueOf()))
+        throw new Error("O endereço de e-mail fornecido já está cadastrado!");
 
     models = readFileSync("./src/models/models.json", "utf8");
     json = JSON.parse(models);
