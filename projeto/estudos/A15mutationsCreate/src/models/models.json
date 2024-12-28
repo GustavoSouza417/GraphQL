@@ -2,36 +2,15 @@
   "usuarios": {
     "usuario1": {
       "id": "1",
-      "nome": "Jussca",
-      "email": "juca@gmail.com",
-      "senha": "123",
-      "perfil": "1"
+      "nome": "Camilla",
+      "email": "camilla@gmail.com",
+      "senha": "12345678",
+      "perfil": "2"
     },
     "usuario2": {
       "id": "2",
-      "nome": "Palbo",
-      "email": "pablo@gmail.com",
-      "senha": "12345678",
-      "perfil": "2"
-    },
-    "usuario3": {
-      "id": "5",
-      "nome": "Reginalda",
-      "email": "reginalda@gmail.com",
-      "senha": "12345678",
-      "perfil": "2"
-    },
-    "usuario4": {
-      "id": "8",
-      "nome": "Jucelaine",
-      "email": "jucelaine@gmail.com",
-      "senha": "12345678",
-      "perfil": "2"
-    },
-    "usuario9": {
-      "id": "9",
-      "nome": "Chablau",
-      "email": "jucelaine@gmail.com",
+      "nome": "Vânia",
+      "email": "vania@gmail.com",
       "senha": "12345678",
       "perfil": "2"
     }

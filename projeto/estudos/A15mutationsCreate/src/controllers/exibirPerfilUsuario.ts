@@ -14,9 +14,6 @@ export default function exibirPerfilUsuario(usuario: Usuario): Perfil | null {
         perfil.id === usuario.perfil
     );
 
-    console.log("Valor do Perfil:\n");
-    console.log(perfil);
-
     return perfil || null;
 };
 

@@ -7,14 +7,17 @@ function autoIncrement() {
     let models;
     let key;
     let id;
-    let increment;
+    let increment = 0;
     models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
-    // models = readFileSync("../models/models.json", "utf8");
     json = JSON.parse(models);
-    //busca o valor do ID do último usuário adicionado e adiciona um
+    //conta a quantidade de usuários
     id = Object.keys(json.usuarios).length - 1;
-    key = Object.keys(json.usuarios)[id];
-    increment = parseInt(json.usuarios[key].id.valueOf()) + 1;
+    //busca o valor do ID do último usuário caso haja pelo menos um usuário
+    if (id > -1) {
+        key = Object.keys(json.usuarios)[id];
+        increment = parseInt(json.usuarios[key].id.valueOf());
+    }
+    increment++;
     return increment.toString();
 }
 ;

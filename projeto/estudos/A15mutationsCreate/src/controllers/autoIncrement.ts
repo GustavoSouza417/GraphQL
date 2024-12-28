@@ -6,16 +6,21 @@ export default function autoIncrement(): String {
     let models: string;
     let key: string;
     let id: number;
-    let increment: number;
+    let increment: number = 0;
 
     models = readFileSync("./src/models/models.json", "utf8");
     json = JSON.parse(models);
 
-    //busca o valor do ID do último usuário adicionado e adiciona um
+    //conta a quantidade de usuários
     id = Object.keys(json.usuarios).length - 1;
-    key = Object.keys(json.usuarios)[id];
-    increment = parseInt(json.usuarios[key].id.valueOf()) + 1;
-    
+
+    //busca o valor do ID do último usuário caso haja pelo menos um usuário
+    if(id > -1) {
+        key = Object.keys(json.usuarios)[id];
+        increment = parseInt(json.usuarios[key].id.valueOf());
+    }
+
+    increment++;
     return increment.toString();
 };
 

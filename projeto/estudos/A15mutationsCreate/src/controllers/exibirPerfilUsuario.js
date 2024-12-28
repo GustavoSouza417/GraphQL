@@ -8,8 +8,6 @@ function exibirPerfilUsuario(usuario) {
     models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
     json = JSON.parse(models);
     const perfil = Object.values(json.perfis).find((perfil) => perfil.id === usuario.perfil);
-    console.log("Valor do Perfil:\n");
-    console.log(perfil);
     return perfil || null;
 }
 ;
