@@ -1,21 +1,15 @@
 import { readFileSync } from "fs";
-import Models from "../tipos/interfaces/json/iModels";
-import Usuario from "../tipos/interfaces/usuario/iUsuario";
+import Models from "../../../tipos/interfaces/json/iModels";
+import Usuario from "../../../tipos/interfaces/usuario/iUsuario";
 
-export default function isEmailCadastrado(email: string): boolean {
+export default function exibirUsuarios(): Usuario[] | null {
     let models: string;
     let json: Models;
-    let usuario: Usuario;
 
     models = readFileSync("./src/models/models.json", "utf8");
     json = JSON.parse(models);
-    
-    for(usuario of Object.values(json.usuarios)) {
-        if(usuario.email === email)
-            return true;
-    };
 
-    return false;
+    return Object.values(json.usuarios) || null;
 };
 
 //as operações de JSON estão com o endereço a partir da pasta raiz

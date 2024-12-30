@@ -3,10 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const exibirPerfilUsuario_1 = __importDefault(require("../../../controllers/exibirPerfilUsuario"));
-const exibirUsuario_1 = __importDefault(require("../../../controllers/exibirUsuario"));
-const exibirUsuarios_1 = __importDefault(require("../../../controllers/exibirUsuarios"));
-const criarUsuario_1 = __importDefault(require("../../../controllers/criarUsuario"));
+const exibirPerfilUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/exibirPerfilUsuario"));
+const exibirUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/exibirUsuario"));
+const exibirUsuarios_1 = __importDefault(require("../../../controllers/crud/usuario/exibirUsuarios"));
+const criarUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/criarUsuario"));
+const atualizarUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/atualizarUsuario"));
 exports.default = {
     Usuario: {
         perfil(usuario) {
@@ -24,6 +25,9 @@ exports.default = {
     Mutation: {
         criarUsuario(_, args) {
             return (0, criarUsuario_1.default)(args.nome, args.email, args.senha, args.isAdm);
+        },
+        atualizarUsuario(_, args) {
+            return (0, atualizarUsuario_1.default)(args.id, args.nome, args.email, args.senha, args.isAdm);
         }
     }
 };

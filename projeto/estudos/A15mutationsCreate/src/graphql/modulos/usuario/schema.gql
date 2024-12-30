@@ -6,11 +6,29 @@ type Usuario {
     perfil: Perfil
 },
 
+# não consegui usar
+input inputCriarUsuario {
+    nome: String!,
+    email: String!,
+    senha: String!,
+    isAdm: Boolean!
+},
+
+# não consegui usar
+input inputAtualizarUsuario {
+    id: ID!,
+    nome: String,
+    email: String,
+    senha: String,
+    isAdm: Boolean
+},
+
 type Query {
     exibirUsuario(id: ID!): Usuario,
     exibirUsuarios: [Usuario]
 },
 
 type Mutation {
-    criarUsuario(nome: String!, email: String!, senha: String!, isAdm: Boolean!): Usuario!
+    criarUsuario(nome: String!, email: String!, senha: String!, isAdm: Boolean!): Usuario!,
+    atualizarUsuario(id: ID!, nome: String, email: String, senha: String, isAdm: Boolean): Usuario!
 }

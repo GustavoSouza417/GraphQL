@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
-import Models from "../tipos/interfaces/json/iModels";
-import Perfil from "../tipos/interfaces/perfil/iPerfil";
-import Usuario from "../tipos/interfaces/usuario/iUsuario";
+import Models from "../../../tipos/interfaces/json/iModels";
+import Perfil from "../../../tipos/interfaces/perfil/iPerfil";
+import Usuario from "../../../tipos/interfaces/usuario/iUsuario";
 
 export default function exibirPerfilUsuario(usuario: Usuario): Perfil | null {
     let models: string;

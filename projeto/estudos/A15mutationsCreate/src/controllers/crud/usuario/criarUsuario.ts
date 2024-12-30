@@ -1,9 +1,9 @@
 import { readFileSync, writeFileSync } from "fs";
-import Models from "../tipos/interfaces/json/iModels";
-import Usuario from "../tipos/interfaces/usuario/iUsuario";
-import autoIncrement from "./autoIncrement";
-import criptografarSenha from "./criptografarSenha";
-import isEmailCadastrado from "./isEmailCadastrado";
+import Models from "../../../tipos/interfaces/json/iModels";
+import Usuario from "../../../tipos/interfaces/usuario/iUsuario";
+import autoIncrement from "../../autoIncrement";
+import criptografarSenha from "../../criptografarSenha";
+import { isEmailCadastrado } from "../../validacoes/isCadastrado";
 
 export default function criarUsuario(nome: string, email: string, senha: string, isAdm: boolean): Usuario {
     let json: Models;
