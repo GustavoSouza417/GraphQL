@@ -5,12 +5,12 @@ import autoIncrement from "./autoIncrement";
 import criptografarSenha from "./criptografarSenha";
 import isEmailCadastrado from "./isEmailCadastrado";
 
-export default function criarUsuario(nome: String, email: String, senha: String, isAdm: boolean): Usuario {
-    let models: string;
+export default function criarUsuario(nome: string, email: string, senha: string, isAdm: boolean): Usuario {
     let json: Models;
-    let id: String;
+    let models: string;
+    let id: string;
 
-    if(isEmailCadastrado(email.valueOf()))
+    if(isEmailCadastrado(email))
         throw new Error("O endereço de e-mail fornecido já está cadastrado!");
 
     models = readFileSync("./src/models/models.json", "utf8");
@@ -21,7 +21,7 @@ export default function criarUsuario(nome: String, email: String, senha: String,
         id: id,
         nome: nome,
         email: email,
-        senha: criptografarSenha(senha.valueOf()),
+        senha: criptografarSenha(senha),
         perfil: (isAdm) ? "1" : "2"
     };
 

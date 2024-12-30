@@ -1,9 +1,7 @@
-import Perfil from "../perfil/iPerfil";
-
 export default interface Usuario {
-    id: String;
-    nome: String;
-    email: String;
-    senha: String;
-    perfil: String;
+    id: string;
+    nome: string;
+    email: string;
+    senha: string;
+    perfil: string;
 };

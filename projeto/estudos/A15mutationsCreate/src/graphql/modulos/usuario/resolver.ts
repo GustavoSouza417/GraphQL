@@ -13,7 +13,7 @@ export default {
     },
 
     Query: {
-        exibirUsuario(_: any, args: {id: String}): Usuario | null {
+        exibirUsuario(_: any, args: {id: string}): Usuario | null {
             return exibirUsuario(args.id);
         },
         
@@ -23,7 +23,7 @@ export default {
     },
 
     Mutation: {
-        criarUsuario(_: any, args: { nome: String, email: String, senha: String, isAdm: boolean }): Usuario {
+        criarUsuario(_: any, args: { nome: string, email: string, senha: string, isAdm: boolean }): Usuario {
             return criarUsuario(args.nome, args.email, args.senha, args.isAdm);
         }
     }

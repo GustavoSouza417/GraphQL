@@ -1,4 +1,4 @@
 export default interface Perfil {
-    id: String;
-    nome: String;
+    id: string;
+    nome: string;
 };

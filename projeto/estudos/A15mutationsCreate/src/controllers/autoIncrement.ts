@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import Models from "../tipos/interfaces/json/iModels";
 
-export default function autoIncrement(): String {
+export default function autoIncrement(): string {
     let json: Models;
     let models: string;
     let key: string;

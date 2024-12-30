@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import Models from "../tipos/interfaces/json/iModels";
 import Usuario from "../tipos/interfaces/usuario/iUsuario";
 
-export default function exibirUsuario(id: String): Usuario | null {
+export default function exibirUsuario(id: string): Usuario | null {
     let models: string;
     let json: Models;
 
