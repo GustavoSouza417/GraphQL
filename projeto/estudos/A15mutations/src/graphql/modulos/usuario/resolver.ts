@@ -5,6 +5,7 @@ import exibirUsuario from "../../../controllers/crud/usuario/select/exibirUsuari
 import exibirUsuarios from "../../../controllers/crud/usuario/select/exibirUsuarios";
 import criarUsuario from "../../../controllers/crud/usuario/criarUsuario";
 import atualizarUsuario from "../../../controllers/crud/usuario/atualizarUsuario";
+import deletarUsuario from "../../../controllers/crud/usuario/deletarUsuario";
 
 export default {
     Usuario: {
@@ -30,6 +31,10 @@ export default {
 
         atualizarUsuario(_: any, args: { id: string, nome: string, email: string, senha: string, isAdm: boolean }): Usuario {
             return atualizarUsuario(args.id, args.nome, args.email, args.senha, args.isAdm);
+        },
+
+        deletarUsuario(_: any, args: { id: string }): Usuario | null {
+            return deletarUsuario(args.id);
         }
     }
 };

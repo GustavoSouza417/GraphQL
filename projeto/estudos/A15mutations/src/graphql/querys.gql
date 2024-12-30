@@ -26,6 +26,12 @@ mutation AtualizarUsuario($id3: ID!, $nome2: String, $email2: String, $senha2: S
     }
 }
 
+mutation DeletarUsuario($id4: ID!) {
+    deletarUsuario(id: $id4) {
+        ...usuarioCompleto
+    }
+}
+
 fragment usuarioCompleto on Usuario {
     id
     nome
@@ -51,5 +57,7 @@ fragment usuarioCompleto on Usuario {
 #   "nome2": "Juca",
 #   "email2": "juca@gmail.com",
 #   "senha2": "123",
-#   "isAdm2": true
+#   "isAdm2": true,
+
+#   "id4: "1"
 # }
