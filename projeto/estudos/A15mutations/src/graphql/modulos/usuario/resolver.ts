@@ -1,8 +1,8 @@
 import Usuario from "../../../tipos/interfaces/usuario/iUsuario";
 import Perfil from "../../../tipos/interfaces/perfil/iPerfil";
-import exibirPerfilUsuario from "../../../controllers/crud/usuario/exibirPerfilUsuario";
-import exibirUsuario from "../../../controllers/crud/usuario/exibirUsuario";
-import exibirUsuarios from "../../../controllers/crud/usuario/exibirUsuarios";
+import exibirPerfilUsuario from "../../../controllers/crud/usuario/select/exibirPerfilUsuario";
+import exibirUsuario from "../../../controllers/crud/usuario/select/exibirUsuario";
+import exibirUsuarios from "../../../controllers/crud/usuario/select/exibirUsuarios";
 import criarUsuario from "../../../controllers/crud/usuario/criarUsuario";
 import atualizarUsuario from "../../../controllers/crud/usuario/atualizarUsuario";
 

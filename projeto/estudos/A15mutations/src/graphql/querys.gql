@@ -14,8 +14,14 @@ query ExibirUsuarios {
     }
 }
 
-mutation CriarUsuario($nome: String!, $email: String!, $senha: String!, $isAdm: Boolean!) {
-    criarUsuario(nome: $nome, email: $email, senha: $senha, isAdm: $isAdm) {
+mutation CriarUsuario($nome1: String!, $email1: String!, $senha1: String!, $isAdm1: Boolean!) {
+    criarUsuario(nome: $nome1, email: $email1, senha: $senha1, isAdm: $isAdm1) {
+        ...usuarioCompleto
+    }
+}
+
+mutation AtualizarUsuario($id3: ID!, $nome2: String, $email2: String, $senha2: String, $isAdm2: Boolean) {
+    atualizarUsuario(id: $id3, nome: $nome2, email: $email2, senha: $senha2, isAdm: $isAdm2) {
         ...usuarioCompleto
     }
 }
@@ -35,8 +41,15 @@ fragment usuarioCompleto on Usuario {
 # {
 #   "id1": "1",
 #   "id2": "2",
-#   "nome": "Juca",
-#   "email": "juca@gmail.com",
-#   "senha": "123",
-#   "isAdm": true
+
+#   "nome1": "Juca",
+#   "email1": "juca@gmail.com",
+#   "senha1": "123",
+#   "isAdm1": true,
+
+#   "id3": "1", 
+#   "nome2": "Juca",
+#   "email2": "juca@gmail.com",
+#   "senha2": "123",
+#   "isAdm2": true
 # }

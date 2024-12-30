@@ -4,6 +4,7 @@ import Usuario from "../../../tipos/interfaces/usuario/iUsuario";
 import criptografarSenha from "../../criptografarSenha";
 import { isIdCadastrado } from "../../validacoes/isCadastrado";
 import { isStringEmpty, isBooleanEmpty } from "../../validacoes/isEmpty";
+import { Erros } from "../../../tipos/enums/erros";
 
 export default function atualizarUsuario(id: string, nome: string, email: string, senha: string, isAdm: boolean): Usuario {
     let json: Models;
@@ -13,7 +14,7 @@ export default function atualizarUsuario(id: string, nome: string, email: string
     json = JSON.parse(models);
 
     if(!isIdCadastrado(id))
-        throw new Error("O ID de usuário especificado não existe!");
+        throw new Error(Erros.ID_NAO_CADASTRADO);
 
     if(!isStringEmpty(nome))
         json.usuarios["usuario" + id].nome = nome;

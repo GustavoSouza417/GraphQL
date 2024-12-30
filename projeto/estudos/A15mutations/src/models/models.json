@@ -11,8 +11,8 @@
       "id": "2",
       "nome": "Vânia",
       "email": "vania@gmail.com",
-      "senha": "12345678",
-      "perfil": "2"
+      "senha": "fa585d89c851dd338a70dcf535aa2a92fee7836dd6aff1226583e88e0996293f16bc009c652826e0fc5c706695a03cddce372f139eff4d13959da6f1f5d3eabe",
+      "perfil": "1"
     },
     "usuario3": {
       "id": "3",
@@ -69,6 +69,13 @@
       "email": "pericles@gmail.com",
       "senha": "fa585d89c851dd338a70dcf535aa2a92fee7836dd6aff1226583e88e0996293f16bc009c652826e0fc5c706695a03cddce372f139eff4d13959da6f1f5d3eabe",
       "perfil": "1"
+    },
+    "usuario11": {
+      "id": "11",
+      "nome": "Cazuza",
+      "email": "cazuza@gmail.com",
+      "senha": "d30532ae76a532284e8799ac872263d796462bc3e635a1fcadce836fe40e7f0b8a3995d67f12c2fd8d2c92e3c1e9fb1134217fb9d10ae239bbe3fffcc749973a",
+      "perfil": "2"
     }
   },
   "perfis": {

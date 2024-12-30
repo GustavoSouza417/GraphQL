@@ -8,12 +8,13 @@ const fs_1 = require("fs");
 const autoIncrement_1 = __importDefault(require("../../autoIncrement"));
 const criptografarSenha_1 = __importDefault(require("../../criptografarSenha"));
 const isCadastrado_1 = require("../../validacoes/isCadastrado");
+const erros_1 = require("../../../tipos/enums/erros");
 function criarUsuario(nome, email, senha, isAdm) {
     let json;
     let models;
     let id;
     if ((0, isCadastrado_1.isEmailCadastrado)(email))
-        throw new Error("O endereço de e-mail fornecido já está cadastrado!");
+        throw new Error(erros_1.Erros.EMAIL_JA_CADASTRADO);
     models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
     json = JSON.parse(models);
     id = (0, autoIncrement_1.default)();

@@ -8,13 +8,14 @@ const fs_1 = require("fs");
 const criptografarSenha_1 = __importDefault(require("../../criptografarSenha"));
 const isCadastrado_1 = require("../../validacoes/isCadastrado");
 const isEmpty_1 = require("../../validacoes/isEmpty");
+const erros_1 = require("../../../tipos/enums/erros");
 function atualizarUsuario(id, nome, email, senha, isAdm) {
     let json;
     let models;
     models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
     json = JSON.parse(models);
     if (!(0, isCadastrado_1.isIdCadastrado)(id))
-        throw new Error("O ID de usuário especificado não existe!");
+        throw new Error(erros_1.Erros.ID_NAO_CADASTRADO);
     if (!(0, isEmpty_1.isStringEmpty)(nome))
         json.usuarios["usuario" + id].nome = nome;
     if (!(0, isEmpty_1.isStringEmpty)(email))

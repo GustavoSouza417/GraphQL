@@ -1,12 +1,16 @@
 import { ApolloServer } from "apollo-server";
 import schema from "./src/graphql/merge";
+import { Erros } from "./src/tipos/enums/erros";
 
 const server: ApolloServer = new ApolloServer({ 
     schema,
 
     formatError: (err: any) => {
-        if(err.message.startsWith("O endereço de e-mail fornecido já está cadastrado!"))
-            return new Error(err.message);
+        for(let erro of Object.values(Erros)) {
+            if(err.message.startsWith(erro))
+                return new Error(erro);
+        }
+
         return err;
     }
 });

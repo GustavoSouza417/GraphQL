@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const exibirPerfilUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/exibirPerfilUsuario"));
-const exibirUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/exibirUsuario"));
-const exibirUsuarios_1 = __importDefault(require("../../../controllers/crud/usuario/exibirUsuarios"));
+const exibirPerfilUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/select/exibirPerfilUsuario"));
+const exibirUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/select/exibirUsuario"));
+const exibirUsuarios_1 = __importDefault(require("../../../controllers/crud/usuario/select/exibirUsuarios"));
 const criarUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/criarUsuario"));
 const atualizarUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/atualizarUsuario"));
 exports.default = {
