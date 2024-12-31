@@ -18,8 +18,11 @@ function atualizarUsuario(id, nome, email, senha, isAdm) {
         throw new Error(erros_1.Erros.ID_NAO_CADASTRADO);
     if (!(0, isEmpty_1.isStringEmpty)(nome))
         json.usuarios["usuario" + id].nome = nome;
-    if (!(0, isEmpty_1.isStringEmpty)(email))
+    if (!(0, isEmpty_1.isStringEmpty)(email)) {
+        if ((0, isCadastrado_1.isEmailCadastrado)(email))
+            throw new Error(erros_1.Erros.EMAIL_JA_CADASTRADO);
         json.usuarios["usuario" + id].email = email;
+    }
     if (!(0, isEmpty_1.isStringEmpty)(senha))
         json.usuarios["usuario" + id].senha = (0, criptografarSenha_1.default)(senha);
     if (!(0, isEmpty_1.isBooleanEmpty)(isAdm))

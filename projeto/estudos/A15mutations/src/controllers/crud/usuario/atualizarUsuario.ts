@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from "fs";
 import Models from "../../../tipos/interfaces/json/iModels";
 import Usuario from "../../../tipos/interfaces/usuario/iUsuario";
 import criptografarSenha from "../../criptografarSenha";
-import { isIdCadastrado } from "../../validacoes/isCadastrado";
+import { isIdCadastrado, isEmailCadastrado } from "../../validacoes/isCadastrado";
 import { isStringEmpty, isBooleanEmpty } from "../../validacoes/isEmpty";
 import { Erros } from "../../../tipos/enums/erros";
 
@@ -19,8 +19,11 @@ export default function atualizarUsuario(id: string, nome: string, email: string
     if(!isStringEmpty(nome))
         json.usuarios["usuario" + id].nome = nome;
 
-    if(!isStringEmpty(email))
+    if(!isStringEmpty(email)) {
+        if(isEmailCadastrado(email))
+            throw new Error(Erros.EMAIL_JA_CADASTRADO);
         json.usuarios["usuario" + id].email = email;
+    }
 
     if(!isStringEmpty(senha))
         json.usuarios["usuario" + id].senha = criptografarSenha(senha);
