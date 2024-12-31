@@ -2,62 +2,6 @@
   "usuarios": {
     "usuario1": {
       "id": "1",
-      "nome": "Juca",
-      "email": "juca@gmail.com",
-      "senha": "3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2",
-      "perfil": "1"
-    },
-    "usuario2": {
-      "id": "2",
-      "nome": "Vânia",
-      "email": "vania@gmail.com",
-      "senha": "fa585d89c851dd338a70dcf535aa2a92fee7836dd6aff1226583e88e0996293f16bc009c652826e0fc5c706695a03cddce372f139eff4d13959da6f1f5d3eabe",
-      "perfil": "1"
-    },
-    "usuario3": {
-      "id": "3",
-      "nome": "Osmar",
-      "email": "osmar@gmail.com",
-      "senha": "fa585d89c851dd338a70dcf535aa2a92fee7836dd6aff1226583e88e0996293f16bc009c652826e0fc5c706695a03cddce372f139eff4d13959da6f1f5d3eabe",
-      "perfil": "2"
-    },
-    "usuario5": {
-      "id": "5",
-      "nome": "Gustavo",
-      "email": "gustavo@gmail.com",
-      "senha": "fa585d89c851dd338a70dcf535aa2a92fee7836dd6aff1226583e88e0996293f16bc009c652826e0fc5c706695a03cddce372f139eff4d13959da6f1f5d3eabe",
-      "perfil": "1"
-    },
-    "usuario6": {
-      "id": "6",
-      "nome": "Jonas",
-      "email": "jonas@gmail.com",
-      "senha": "fa585d89c851dd338a70dcf535aa2a92fee7836dd6aff1226583e88e0996293f16bc009c652826e0fc5c706695a03cddce372f139eff4d13959da6f1f5d3eabe",
-      "perfil": "2"
-    },
-    "usuario7": {
-      "id": "7",
-      "nome": "Jonas",
-      "email": "jonaazaazazazas@gmail.com",
-      "senha": "fa585d89c851dd338a70dcf535aa2a92fee7836dd6aff1226583e88e0996293f16bc009c652826e0fc5c706695a03cddce372f139eff4d13959da6f1f5d3eabe",
-      "perfil": "2"
-    },
-    "usuario8": {
-      "id": "8",
-      "nome": "Jessica",
-      "email": "jessica@gmail.com",
-      "senha": "fa585d89c851dd338a70dcf535aa2a92fee7836dd6aff1226583e88e0996293f16bc009c652826e0fc5c706695a03cddce372f139eff4d13959da6f1f5d3eabe",
-      "perfil": "2"
-    },
-    "usuario10": {
-      "id": "10",
-      "nome": "Cazuza",
-      "email": "cazuza@gmail.com",
-      "senha": "d30532ae76a532284e8799ac872263d796462bc3e635a1fcadce836fe40e7f0b8a3995d67f12c2fd8d2c92e3c1e9fb1134217fb9d10ae239bbe3fffcc749973a",
-      "perfil": "2"
-    },
-    "usuario12": {
-      "id": "12",
       "nome": "Ricardão",
       "email": "ricardao@gmail.com",
       "senha": "fa557d289fa40cd0eebbacd044ba2a28792daf2ce0250cc53a85a300bbd44b817f6c8a620fdfd3b6c7af4391017c80333b6b9157e2ad73a9b0f5b2d9247b42d7",

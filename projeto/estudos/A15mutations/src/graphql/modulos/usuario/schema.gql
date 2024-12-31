@@ -31,5 +31,6 @@ type Query {
 type Mutation {
     criarUsuario(nome: String!, email: String!, senha: String!, isAdm: Boolean!): Usuario!,
     atualizarUsuario(id: ID!, nome: String, email: String, senha: String, isAdm: Boolean): Usuario!,
-    deletarUsuario(id: ID!): Usuario!
+    deletarUsuario(id: ID!): Usuario!,
+    deletarTodosOsUsuarios: String!
 }

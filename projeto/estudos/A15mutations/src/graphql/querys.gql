@@ -32,6 +32,10 @@ mutation DeletarUsuario($id4: ID!) {
     }
 }
 
+mutation DeletarTodosOsUsuarios {
+    deletarTodosOsUsuarios
+}
+
 fragment usuarioCompleto on Usuario {
     id
     nome

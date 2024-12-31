@@ -9,6 +9,7 @@ const exibirUsuarios_1 = __importDefault(require("../../../controllers/crud/usua
 const criarUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/criarUsuario"));
 const atualizarUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/atualizarUsuario"));
 const deletarUsuario_1 = __importDefault(require("../../../controllers/crud/usuario/deletarUsuario"));
+const deletarTodosOsUsuarios_1 = __importDefault(require("../../../controllers/crud/usuario/deletarTodosOsUsuarios"));
 exports.default = {
     Usuario: {
         perfil(usuario) {
@@ -32,6 +33,9 @@ exports.default = {
         },
         deletarUsuario(_, args) {
             return (0, deletarUsuario_1.default)(args.id);
+        },
+        deletarTodosOsUsuarios() {
+            return (0, deletarTodosOsUsuarios_1.default)();
         }
     }
 };

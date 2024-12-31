@@ -6,6 +6,7 @@ import exibirUsuarios from "../../../controllers/crud/usuario/select/exibirUsuar
 import criarUsuario from "../../../controllers/crud/usuario/criarUsuario";
 import atualizarUsuario from "../../../controllers/crud/usuario/atualizarUsuario";
 import deletarUsuario from "../../../controllers/crud/usuario/deletarUsuario";
+import deletarTodosOsUsuarios from "../../../controllers/crud/usuario/deletarTodosOsUsuarios";
 
 export default {
     Usuario: {
@@ -35,6 +36,10 @@ export default {
 
         deletarUsuario(_: any, args: { id: string }): Usuario | null {
             return deletarUsuario(args.id);
+        },
+
+        deletarTodosOsUsuarios(): string {
+            return deletarTodosOsUsuarios();
         }
     }
 };
