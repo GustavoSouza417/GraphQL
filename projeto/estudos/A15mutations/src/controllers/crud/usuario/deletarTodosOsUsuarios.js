@@ -7,14 +7,24 @@ function deletarTodosOsUsuarios() {
     let json;
     let models;
     let key;
-    models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
-    json = JSON.parse(models);
+    try {
+        models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
+        json = JSON.parse(models);
+    }
+    catch (error) {
+        throw new Error(erros_1.Erros.ERRO_LEITURA_JSON);
+    }
     if (Object.keys(json.usuarios).length === 0)
         throw new Error(erros_1.Erros.SEM_USUARIOS_CADASTRADOS);
     for (key in json.usuarios)
         delete json.usuarios[key];
-    models = JSON.stringify(json, null, 2);
-    (0, fs_1.writeFileSync)("./src/models/models.json", models, "utf-8");
+    try {
+        models = JSON.stringify(json, null, 2);
+        (0, fs_1.writeFileSync)("./src/models/models.json", models, "utf-8");
+    }
+    catch (error) {
+        throw new Error(erros_1.Erros.ERRO_GRAVACAO_JSON);
+    }
     return "Todos os usuários foram excluídos com sucesso!";
 }
 ;

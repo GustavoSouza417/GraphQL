@@ -10,8 +10,12 @@ export default function atualizarUsuario(id: string, nome: string, email: string
     let json: Models;
     let models: string;
 
-    models = readFileSync("./src/models/models.json", "utf8");
-    json = JSON.parse(models);
+    try {
+        models = readFileSync("./src/models/models.json", "utf8");
+        json = JSON.parse(models);
+    } catch(error: unknown) {
+        throw new Error(Erros.ERRO_LEITURA_JSON);
+    }
 
     if(!isIdCadastrado(id))
         throw new Error(Erros.ID_NAO_CADASTRADO);
@@ -31,8 +35,12 @@ export default function atualizarUsuario(id: string, nome: string, email: string
     if(!isBooleanEmpty(isAdm))
         json.usuarios["usuario" + id].perfil = (isAdm) ? "1" : "2";
 
-    models = JSON.stringify(json, null, 2);
-    writeFileSync("./src/models/models.json", models, "utf-8");
+    try {
+        models = JSON.stringify(json, null, 2);
+        writeFileSync("./src/models/models.json", models, "utf-8");
+    } catch(error: unknown) {
+        throw new Error(Erros.ERRO_GRAVACAO_JSON);
+    }
 
     return json.usuarios["usuario" + id];
 };

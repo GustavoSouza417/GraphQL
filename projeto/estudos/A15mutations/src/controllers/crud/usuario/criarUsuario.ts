@@ -14,8 +14,13 @@ export default function criarUsuario(nome: string, email: string, senha: string,
     if(isEmailCadastrado(email))
         throw new Error(Erros.EMAIL_JA_CADASTRADO);
 
-    models = readFileSync("./src/models/models.json", "utf8");
-    json = JSON.parse(models);
+    try {
+        models = readFileSync("./src/models/models.json", "utf8");
+        json = JSON.parse(models);
+    } catch(error: unknown) {
+        throw new Error(Erros.ERRO_LEITURA_JSON);
+    }
+
     id = autoIncrement();
 
     json.usuarios["usuario" + id] = {
@@ -26,8 +31,12 @@ export default function criarUsuario(nome: string, email: string, senha: string,
         perfil: (isAdm) ? "1" : "2"
     };
 
-    models = JSON.stringify(json, null, 2);
-    writeFileSync("./src/models/models.json", models, "utf-8");
+    try {
+        models = JSON.stringify(json, null, 2);
+        writeFileSync("./src/models/models.json", models, "utf-8");
+    } catch(error: unknown) {
+        throw new Error(Erros.ERRO_GRAVACAO_JSON);
+    }
 
     return json.usuarios["usuario" + id];
 };

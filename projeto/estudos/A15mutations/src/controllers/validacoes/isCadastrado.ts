@@ -1,14 +1,19 @@
 import { readFileSync } from "fs";
 import Models from "../../tipos/interfaces/json/iModels";
 import Usuario from "../../tipos/interfaces/usuario/iUsuario";
+import { Erros } from "../../tipos/enums/erros";
 
 function isEmailCadastrado(email: string): boolean {
     let models: string;
     let json: Models;
     let usuario: Usuario;
 
-    models = readFileSync("./src/models/models.json", "utf8");
-    json = JSON.parse(models);
+    try {
+        models = readFileSync("./src/models/models.json", "utf8");
+        json = JSON.parse(models);
+    } catch(error: unknown) {
+        throw new Error(Erros.ERRO_LEITURA_JSON);
+    }
     
     for(usuario of Object.values(json.usuarios)) {
         if(usuario.email === email)
@@ -23,8 +28,12 @@ function isIdCadastrado(id: string): boolean {
     let json: Models;
     let usuario: Usuario;
 
-    models = readFileSync("./src/models/models.json", "utf8");
-    json = JSON.parse(models);
+    try {
+        models = readFileSync("./src/models/models.json", "utf8");
+        json = JSON.parse(models);
+    } catch(error: unknown) {
+        throw new Error(Erros.ERRO_LEITURA_JSON);
+    }
     
     for(usuario of Object.values(json.usuarios)) {
         if(usuario.id === id)

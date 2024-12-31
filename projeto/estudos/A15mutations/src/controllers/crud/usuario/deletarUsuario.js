@@ -11,8 +11,13 @@ function deletarUsuario(id) {
     let key;
     if (!(0, isCadastrado_1.isIdCadastrado)(id))
         throw new Error(erros_1.Erros.ID_NAO_CADASTRADO);
-    models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
-    json = JSON.parse(models);
+    try {
+        models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
+        json = JSON.parse(models);
+    }
+    catch (error) {
+        throw new Error(erros_1.Erros.ERRO_LEITURA_JSON);
+    }
     for (key in json.usuarios) {
         if (json.usuarios[key].id === id) {
             usuario = json.usuarios[key];
@@ -20,8 +25,13 @@ function deletarUsuario(id) {
             break;
         }
     }
-    models = JSON.stringify(json, null, 2);
-    (0, fs_1.writeFileSync)("./src/models/models.json", models, "utf-8");
+    try {
+        models = JSON.stringify(json, null, 2);
+        (0, fs_1.writeFileSync)("./src/models/models.json", models, "utf-8");
+    }
+    catch (error) {
+        throw new Error(erros_1.Erros.ERRO_GRAVACAO_JSON);
+    }
     return usuario;
 }
 ;

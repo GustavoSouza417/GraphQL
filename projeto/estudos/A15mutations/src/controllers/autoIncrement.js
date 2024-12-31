@@ -2,14 +2,20 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = autoIncrement;
 const fs_1 = require("fs");
+const erros_1 = require("../tipos/enums/erros");
 function autoIncrement() {
     let json;
     let models;
     let key;
     let id;
     let increment = 0;
-    models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
-    json = JSON.parse(models);
+    try {
+        models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
+        json = JSON.parse(models);
+    }
+    catch (error) {
+        throw new Error(erros_1.Erros.ERRO_LEITURA_JSON);
+    }
     //conta a quantidade de usuários
     id = Object.keys(json.usuarios).length - 1;
     //busca o valor do ID do último usuário caso haja pelo menos um usuário

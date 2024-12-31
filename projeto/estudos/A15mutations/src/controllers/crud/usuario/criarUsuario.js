@@ -15,8 +15,13 @@ function criarUsuario(nome, email, senha, isAdm) {
     let id;
     if ((0, isCadastrado_1.isEmailCadastrado)(email))
         throw new Error(erros_1.Erros.EMAIL_JA_CADASTRADO);
-    models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
-    json = JSON.parse(models);
+    try {
+        models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
+        json = JSON.parse(models);
+    }
+    catch (error) {
+        throw new Error(erros_1.Erros.ERRO_LEITURA_JSON);
+    }
     id = (0, autoIncrement_1.default)();
     json.usuarios["usuario" + id] = {
         id: id,
@@ -25,8 +30,13 @@ function criarUsuario(nome, email, senha, isAdm) {
         senha: (0, criptografarSenha_1.default)(senha),
         perfil: (isAdm) ? "1" : "2"
     };
-    models = JSON.stringify(json, null, 2);
-    (0, fs_1.writeFileSync)("./src/models/models.json", models, "utf-8");
+    try {
+        models = JSON.stringify(json, null, 2);
+        (0, fs_1.writeFileSync)("./src/models/models.json", models, "utf-8");
+    }
+    catch (error) {
+        throw new Error(erros_1.Erros.ERRO_GRAVACAO_JSON);
+    }
     return json.usuarios["usuario" + id];
 }
 ;

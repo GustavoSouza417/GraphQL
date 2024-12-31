@@ -1,5 +1,6 @@
 import { readFileSync } from "fs";
 import Models from "../tipos/interfaces/json/iModels";
+import { Erros } from "../tipos/enums/erros";
 
 export default function autoIncrement(): string {
     let json: Models;
@@ -8,8 +9,12 @@ export default function autoIncrement(): string {
     let id: number;
     let increment: number = 0;
 
-    models = readFileSync("./src/models/models.json", "utf8");
-    json = JSON.parse(models);
+    try {
+        models = readFileSync("./src/models/models.json", "utf8");
+        json = JSON.parse(models);
+    } catch(error: unknown) {
+        throw new Error(Erros.ERRO_LEITURA_JSON);
+    }
 
     //conta a quantidade de usuários
     id = Object.keys(json.usuarios).length - 1;

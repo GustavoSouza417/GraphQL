@@ -13,8 +13,12 @@ export default function deletarUsuario(id: string): Usuario | null {
     if(!isIdCadastrado(id))
         throw new Error(Erros.ID_NAO_CADASTRADO);
 
-    models = readFileSync("./src/models/models.json", "utf8");
-    json = JSON.parse(models);
+    try {
+        models = readFileSync("./src/models/models.json", "utf8");
+        json = JSON.parse(models);
+    } catch(error: unknown) {
+        throw new Error(Erros.ERRO_LEITURA_JSON);
+    }
 
     for(key in json.usuarios) {
         if(json.usuarios[key].id === id) {
@@ -24,8 +28,12 @@ export default function deletarUsuario(id: string): Usuario | null {
         }
     }
 
-    models = JSON.stringify(json, null, 2);
-    writeFileSync("./src/models/models.json", models, "utf-8");
+    try {
+        models = JSON.stringify(json, null, 2);
+        writeFileSync("./src/models/models.json", models, "utf-8");
+    } catch(error: unknown) {
+        throw new Error(Erros.ERRO_GRAVACAO_JSON);
+    }
 
     return usuario;
 };

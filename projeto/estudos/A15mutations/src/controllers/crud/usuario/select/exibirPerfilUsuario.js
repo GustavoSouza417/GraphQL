@@ -2,11 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = exibirPerfilUsuario;
 const fs_1 = require("fs");
+const erros_1 = require("../../../../tipos/enums/erros");
 function exibirPerfilUsuario(usuario) {
     let models;
     let json;
-    models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
-    json = JSON.parse(models);
+    try {
+        models = (0, fs_1.readFileSync)("./src/models/models.json", "utf8");
+        json = JSON.parse(models);
+    }
+    catch (error) {
+        throw new Error(erros_1.Erros.ERRO_LEITURA_JSON);
+    }
     const perfil = Object.values(json.perfis).find((perfil) => perfil.id === usuario.perfil);
     return perfil || null;
 }
